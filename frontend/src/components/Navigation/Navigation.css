@@ -1,7 +1,6 @@
- /* li {
-    display: inline-block;
-    justify-content: space-between;
-} */
-.navbar li {
-    justify-content: right;
+
+ li {
+    display: flex;
+    justify-content: space-evenly;
+	margin: 10px
 }

@@ -8,6 +8,7 @@ const { environment } = require('./config');
 const isProduction = environment === 'production';
 const routes = require('./routes');
 const app = express();
+const spotsRouter = require('./routes/api/spots.js')
 
 app.use(morgan('dev'));
 app.use(cookieParser());
