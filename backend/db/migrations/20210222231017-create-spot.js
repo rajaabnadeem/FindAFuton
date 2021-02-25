@@ -8,11 +8,45 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      firstName: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      lastName: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       title: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       body: {
+        allowNull: false,
         type: Sequelize.TEXT,
+      },
+      address: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      state: {
+        allowNull: false,
+        type: Sequelize.TEXT
+      },
+      zipCode: {
+        allowNull: false,
+        type: Sequelize.TEXT
+      },
+      photo1: {
+        type: Sequelize.STRING
+      },
+      photo2: {
+        type: Sequelize.STRING
+      },
+      photo3: {
+        type: Sequelize.STRING
+      },
+      photo4: {
+        type: Sequelize.STRING
       },
       hostId: {
         allowNull: false,

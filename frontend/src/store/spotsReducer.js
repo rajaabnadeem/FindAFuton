@@ -4,7 +4,7 @@ export const LOAD_SPOTS = 'spots/LOAD_SPOTS'
 export const REMOVE_SPOT = "spots/REMOVE_SPOT";
 export const UPDATE_SPOT = "spots/UPDATE_SPOT";
 export const ADD_SPOT = "spots/ADD_SPOT";
-export const LOAD_REVIEWS = 'reviews/LOAD_REVIEWS'
+export const LOAD_ONE_SPOT = 'spots/LOAD_ONE_SPOT'
 
 const load = (spots) => ({
     type: LOAD_SPOTS,
@@ -26,12 +26,10 @@ const remove = (spots) => ({
     spots
 })
 
-const loadReviews = (reviews) => ({
-  type: LOAD_REVIEWS,
-  reviews
-
+const loadOneSpot = (spot) => ({
+  type: LOAD_ONE_SPOT,
+  spot
 })
-
 
 export const getSpots = (spotId) => async dispatch => {
     const response = await fetch(`api/spots`)
@@ -42,13 +40,13 @@ export const getSpots = (spotId) => async dispatch => {
     return spots
 }
 
-export const getReviews = (reviewId) => async dispatch => {
-  const response = await fetch (`api/spots/:id`)
+export const getOneSpot = (spotId) => async dispatch => {
+  const response = await fetch(`/api/spots/${spotId}`)
 
   if (!response.ok) throw response
-  const reviews = await response.json()
-  dispatch(loadReviews(reviews))
-  return reviews
+  const oneSpot = await response.json()
+  dispatch(loadOneSpot(oneSpot.spot))
+  return oneSpot
 }
 
 const initialState = []
@@ -56,11 +54,11 @@ const initialState = []
 const spotsReducer = (state = initialState, action) => {
     switch (action.type) {
       case LOAD_SPOTS: {
-         const newSpots = action.spots
+         const newState = action.spots
         action.spots.forEach(spot => {
-          spot = newSpots[spot.id]
+          spot = newState[spot.id]
         })
-        return newSpots
+        return newState
       }
       case REMOVE_SPOT: {
         const newState = { ...state };
@@ -74,9 +72,13 @@ const spotsReducer = (state = initialState, action) => {
           [action.spot.id]: action.spot,
         };
       }
+      case LOAD_ONE_SPOT: {
+        return action.spot
+      }
       default:
         return state;
     }
   };
+
 
   export default spotsReducer;
