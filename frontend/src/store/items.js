@@ -43,7 +43,7 @@ export const getSpots = (spotId) => async dispatch => {
 }
 
 export const getReviews = (reviewId) => async dispatch => {
-  const response = await fetch (`api/reviews`)
+  const response = await fetch (`api/spots/:id`)
 
   if (!response.ok) throw response
   const reviews = await response.json()
@@ -56,12 +56,9 @@ const initialState = []
 const spotsReducer = (state = initialState, action) => {
     switch (action.type) {
       case LOAD_SPOTS: {
-        // const newState = {...state}
-        // newState.spots = action.spots
          const newSpots = action.spots
         action.spots.forEach(spot => {
           spot = newSpots[spot.id]
-          // newSpots[spot.id] = spot;
         })
         return newSpots
       }

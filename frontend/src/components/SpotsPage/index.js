@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Route, Switch, NavLink } from 'react-router-dom'
 import { getSpots } from '../../store/items.js'
+import './SpotsPage.css'
 
 const SpotList = () => {
     const dispatch = useDispatch()
@@ -14,18 +15,18 @@ const SpotList = () => {
     const spots = useSelector(state => state.spots);
 
     return (
-        <div>
-            <h1>Spots</h1>
-            {spots.map(spot => (
-                <NavLink to = {`spots/${spot.id}`}>{spot.title}</NavLink>
+        <div className = 'container__spots'>
+            <div className = 'container__header'>
+                <div className = 'header'>Spots</div>
+            </div>
+                <div className = 'all__spots'>
+             {spots.map(spot => (
+                 <div className = 'single__spot'>
+                 <NavLink to = {`spots/${spot.id}`}>{spot.title}</NavLink>
+                 <h4>{spot.body}</h4>
+                 </div>
             ))}
-                {/* {spots.forEach(spot => {
-                    <NavLink to={`/spot/${spot.id}`} >{spot.title}</NavLink> */}
-                {/* })} */}
-        {/* <Switch>
-            <Route path = {`/spot/${spotId}`}>
-            </Route>
-        </Switch> */}
+            </div>
         </div>
     )
 }

@@ -1,0 +1,30 @@
+.container__spots {
+    display: flex;
+    flex-direction: column;
+}
+
+.container__header {
+    justify-content: center;
+    background-color: yellow;
+    padding:30px
+}
+.header {
+    background-color:lightgray;
+    justify-content: center;
+	width: 100%;
+}
+
+.all__spots {
+    display:flex;
+    flex-direction: column;
+    background-color:white;
+    justify-content: left;
+
+}
+
+.single__spot {
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 1px 2px var(--color-shadow-light);
+}
