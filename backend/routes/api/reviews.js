@@ -3,6 +3,12 @@ const router = require('express').Router()
 const { User, Spot, Review } = require('../../db/models')
 const asyncHandler = require('express-async-handler');
 
+
+router.get('/', asyncHandler(async function(req, res) {
+    const reviews = await Review.findAll()
+    return res.json(reviews)
+}))
+
 router.post('/', asyncHandler(async function (req, res) {
     const {body, rating, authorId, spotId} = req.body
     const review = await Review.create({body, rating, authorId, spotId})

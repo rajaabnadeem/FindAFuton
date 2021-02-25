@@ -1,45 +1,32 @@
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { Route, Switch, NavLink } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { getSpots } from '../../reducers/spotReducer'
-import { useEffect } from 'react'
-import spot from '../../../../backend/db/models/spot'
+import { getSpots } from '../../store/items.js'
 
-
-function getSpotsPage() {
+const SpotList = () => {
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        dispatch(getSpots())
+    }, [dispatch])
+
+    const spots = useSelector(state => state.spots);
 
     return (
         <div>
-            <NavLink key = {spot.name} to = {`spot/${spot.id}`}>
-
-            </NavLink>
+            <h1>Spots</h1>
+            {spots.map(spot => (
+                <NavLink to = {`spots/${spot.id}`}>{spot.title}</NavLink>
+            ))}
+                {/* {spots.forEach(spot => {
+                    <NavLink to={`/spot/${spot.id}`} >{spot.title}</NavLink> */}
+                {/* })} */}
+        {/* <Switch>
+            <Route path = {`/spot/${spotId}`}>
+            </Route>
+        </Switch> */}
         </div>
     )
 }
-// const spotList = () => {
-//     const dispatch = useDispatch()
-//     const spot = useSelector((state) => state)
-//     useEffect(() => {
-//         dispatch(getSpots())
-//     }, [dispatch])
-
-//     return (
-//         <div>
-//             <h1>Spots List</h1>
-//             <ol>
-//                 {spot &&
-//                 spot.map(({ title, body }) => (
-//                     <NavLink key ={id} to = {``} />
-//                 ))}
-//             </ol>
-//             <Switch>
-
-
-
-//             </Switch>
-
-//         </div>
-//     )
-// }
+export default SpotList

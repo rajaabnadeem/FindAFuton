@@ -1,1 +1,0 @@
-import { LOAD_SPOTS, REMOVE_SPOTS, ADD_SPOTS, UPDATE_SPOT } from './items'
