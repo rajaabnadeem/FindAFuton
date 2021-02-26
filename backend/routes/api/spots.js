@@ -10,8 +10,9 @@ router.get('/', asyncHandler(async function(req, res) {
 }))
 
 router.post('/', asyncHandler(async function (req, res) {
-    const {hostId, title, body} = req.body
-    const spot = await Spot.create({hostId, title, body})
+    const {firstName, lastName , title, body, address, state, zipCode, photo1, photo2, photo3, photo4} = req.body
+    console.log('AAAAAAAAAAAAAAAAAAAA:', firstName)
+    const spot = await Spot.create({firstName, lastName , title, body, address, state, zipCode, photo1, photo2, photo3, photo4})
     return res.json({spot})
 }))
 

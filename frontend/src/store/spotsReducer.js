@@ -1,4 +1,5 @@
 import {useEffect} from 'react'
+import { csrfFetch } from './csrf'
 
 export const LOAD_SPOTS = 'spots/LOAD_SPOTS'
 export const REMOVE_SPOT = "spots/REMOVE_SPOT";
@@ -16,7 +17,7 @@ const update = (spot) => ({
     spot
 })
 
-const add = (spot) => ({
+const addOneSpot = (spot) => ({
     type: ADD_SPOT,
     spot
 })
@@ -30,6 +31,20 @@ const loadOneSpot = (spot) => ({
   type: LOAD_ONE_SPOT,
   spot
 })
+
+export const addSpot = ({firstName, lastName, title, body, address, state, zipCode, photo1, photo2, photo3, photo4}) => async dispatch => {
+ console.log(firstName)
+  const response = await csrfFetch(`api/spots`, {
+    method: 'POST',
+    body: JSON.stringify({firstName, lastName, title, body, address, state, zipCode, photo1, photo2, photo3, photo4}),
+    // headers: { 'Content-type': 'application/json' }
+  })
+
+  if (!response.ok) throw response
+  const spot = await response.json()
+  dispatch(addOneSpot(spot))
+  return spot
+}
 
 export const getSpots = (spotId) => async dispatch => {
     const response = await fetch(`api/spots`)
@@ -65,7 +80,10 @@ const spotsReducer = (state = initialState, action) => {
         delete newState[action.spotId];
         return newState;
       }
-      case ADD_SPOT:
+      case ADD_SPOT: {
+        const newState = [...state, action.spot]
+        return newState
+      }
       case UPDATE_SPOT: {
         return {
           ...state,

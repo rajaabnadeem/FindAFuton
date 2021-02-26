@@ -1,5 +1,5 @@
 
-.nav-bar {
+.container__navbar {
     background: #000000;
     opacity: 0.9;
     display: inline-block;
@@ -9,14 +9,26 @@
     font-size: larger;
   }
 
-  .nav-bar a:hover {
+  .container__navbar a:hover {
     color: #000000;
     position: sticky;
     background: #ffffff;
   }
 
-  .nav-bar a {
+  .container__navbar a {
     color: #ffffff;
     background: #000000;
     margin-right: 20px;
+  }
+
+  .navbar__links {
+        display:flex;
+        flex-direction: row;
+        padding: 8px 0px;
+        margin-left: 10px
+  }
+
+  .searchbar {
+      margin-left: 60%;
+      width: 15%
   }

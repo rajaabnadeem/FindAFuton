@@ -18,15 +18,18 @@ const SpotPage = () => {
     return (
         <div className = 'container'>
             <div className = 'container__header'>
-                <div className = 'header'> </div>
+                <div className = 'header'>
+                    <input className = 'main__searchbar' type = 'text' placeholder = 'Where are you going?'></input>
+                </div>
                 <div className ='header__top'>
                     <div className = 'logo'>Find a Futon</div>
                     <div className = 'stay'>Places to Stay</div>
-                    <div className = 'host'>Become a Host</div>
+                    <NavLink className = 'host' to = '/createSpot'>Become a Host</NavLink>
                 </div>
                 <div className = 'header__bottom'>Find your next couch to surf</div>
             </div>
             <div className = 'container__spots'>
+                <input type='file' />
                 {spots.length && spots.map(spot => (
                     <div key = {spot.id} className = 'single__spot'>
 

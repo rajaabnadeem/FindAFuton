@@ -22,7 +22,6 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <div className =' nav-bar'>
       <div className='container__navbar'>
           <div className = 'navbar'>
               <div className = 'navbar__links'>
@@ -30,10 +29,10 @@ function Navigation({ isLoaded }){
                   <NavLink exact to="/">Home</NavLink>
                   {isLoaded && sessionLinks}
                   </li>
+                  <input className = 'searchbar' type = 'text' placeholder = 'Search'></input>
               </div>
           </div>
       </div>
-    </div>
   );
 }
 
