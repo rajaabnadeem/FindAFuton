@@ -1,6 +1,22 @@
 
- li {
-    display: flex;
-    justify-content: space-evenly;
-	margin: 10px
-}
+.nav-bar {
+    background: #000000;
+    opacity: 0.9;
+    display: inline-block;
+    position: fixed;
+    width: 100%;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: larger;
+  }
+
+  .nav-bar a:hover {
+    color: #000000;
+    position: sticky;
+    background: #ffffff;
+  }
+
+  .nav-bar a {
+    color: #ffffff;
+    background: #000000;
+    margin-right: 20px;
+  }

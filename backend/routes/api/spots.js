@@ -5,6 +5,7 @@ const asyncHandler = require('express-async-handler');
 
 router.get('/', asyncHandler(async function(req, res) {
     const spots = await Spot.findAll()
+    console.log(spots)
     return res.json(spots)
 }))
 

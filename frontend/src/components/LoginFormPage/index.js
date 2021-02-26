@@ -30,7 +30,7 @@ function LoginFormPage() {
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <div className= 'container'>
+      <div className= 'container__login'>
           <div className = 'container__heading'>
           <h1>Find a Futon</h1>
           <p>Find your next couch to crash on</p>
