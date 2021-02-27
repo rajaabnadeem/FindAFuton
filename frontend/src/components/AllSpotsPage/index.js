@@ -4,7 +4,6 @@ import { Route, Switch, NavLink } from 'react-router-dom'
 import { getSpots } from '../../store/spotReducer.js'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image } from 'pure-react-carousel';
 import Carousel from 'react-img-carousel';
-
 import './SpotsPage.css'
 
 const SpotPage = () => {

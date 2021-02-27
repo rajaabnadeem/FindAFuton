@@ -5,14 +5,12 @@ const asyncHandler = require('express-async-handler');
 
 router.get('/', asyncHandler(async function(req, res) {
     const spots = await Spot.findAll()
-    console.log(spots)
     return res.json(spots)
 }))
 
 router.post('/', asyncHandler(async function (req, res) {
-    const {firstName, lastName , title, body, address, state, zipCode, photo1, photo2, photo3, photo4} = req.body
-    console.log('AAAAAAAAAAAAAAAAAAAA:', firstName)
-    const spot = await Spot.create({firstName, lastName , title, body, address, state, zipCode, photo1, photo2, photo3, photo4})
+    const {hostId, firstName, lastName , title, body, address, state, zipCode, photo1, photo2, photo3, photo4} = req.body
+    const spot = await Spot.create({hostId, firstName, lastName , title, body, address, state, zipCode, photo1, photo2, photo3, photo4})
     return res.json({spot})
 }))
 

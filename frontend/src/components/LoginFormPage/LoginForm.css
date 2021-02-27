@@ -1,5 +1,5 @@
 .container__login {
-    background-image: url('../assets/login.jpeg');
+    /* background-image: url('../assets/login.jpeg'); */
 	background-size: cover;
 	position: absolute;
     height: 100%;
