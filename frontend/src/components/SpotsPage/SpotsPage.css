@@ -46,7 +46,6 @@
     margin-top:27.8%
 }
 
-
 .single__spot {
     border-radius: 3%;
     border: 1px solid gray;
@@ -57,14 +56,13 @@
     margin-top: 15px;
     padding-left: 10px;
     padding-top:10px
-
 }
 
 .photos {
     float:left;
     width:45%
-
 }
+
 img {
     width: 300px;
     height: 200px;
@@ -96,4 +94,10 @@ img {
     position: absolute;
     height: 8%;
     font-size:medium
+}
+
+
+.sliderTray___-vHFQ.sliderAnimation___300FY.carousel__slider-tray.carousel__slider-tray--horizontal {
+    background-color: yellow;
+    max-width: 20%;
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { Route, Switch, NavLink } from 'react-router-dom'
-import reviewReducer from '../../store/reviewsReducer.js';
-import { getSpots } from '../../store/spotsReducer.js'
+import { getSpots } from '../../store/spotReducer.js'
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image } from 'pure-react-carousel';
+import Carousel from 'react-img-carousel';
 
 import './SpotsPage.css'
 
@@ -29,7 +29,7 @@ const SpotPage = () => {
                 <div className = 'header__bottom'>Find your next couch to surf</div>
             </div>
             <div className = 'container__spots'>
-                <input type='file' />
+                {/* <input type='file' /> */}
                 {spots.length && spots.map(spot => (
                     <div key = {spot.id} className = 'single__spot'>
 
@@ -41,10 +41,30 @@ const SpotPage = () => {
                         </div>
                         <div className ='photos'>
                             <h3>Photos</h3>
-                            <img src={spot.photo1}></img>
-                            <img src={spot.photo2}></img>
-                            <img src={spot.photo3}></img>
-                            <img src={spot.photo4}></img>
+                            <div className= 'container__carousel'>
+                            {/* <CarouselProvider
+                            naturalSlideWidth={100}
+                            naturalSlideHeight={300}
+                            totalSlides={4}
+                            >
+                                <Slider index={0}>
+                                    <Image src = {spot.photo1} />
+                                    <Image src = {spot.photo2} />
+                                    <Image src = {spot.photo3} />
+                                    <Image src = {spot.photo4} />
+                                </Slider>
+
+                                <ButtonBack>Back</ButtonBack>
+                                <ButtonNext>Next</ButtonNext>
+                            </CarouselProvider> */}
+
+
+
+                                <img src={spot.photo1}></img>
+                                <img src={spot.photo2}></img>
+                                <img src={spot.photo3}></img>
+                                <img src={spot.photo4}></img>
+                            </div>
                         </div>
                     </div>
                  ))}

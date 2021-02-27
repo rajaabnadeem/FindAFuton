@@ -32,12 +32,11 @@ const loadOneSpot = (spot) => ({
   spot
 })
 
-export const addSpot = ({firstName, lastName, title, body, address, state, zipCode, photo1, photo2, photo3, photo4}) => async dispatch => {
- console.log(firstName)
-  const response = await csrfFetch(`api/spots`, {
+export const addSpot = ({hostId, firstName, lastName, title, body, address, state, zipCode, photo1, photo2, photo3, photo4}) => async dispatch => {
+  const response = await csrfFetch(`/api/spots`, {
     method: 'POST',
-    body: JSON.stringify({firstName, lastName, title, body, address, state, zipCode, photo1, photo2, photo3, photo4}),
-    // headers: { 'Content-type': 'application/json' }
+    body: JSON.stringify({hostId, firstName, lastName, title, body, address, state, zipCode, photo1, photo2, photo3, photo4}),
+    headers: { 'Content-Type': 'application/json' }
   })
 
   if (!response.ok) throw response
@@ -47,7 +46,7 @@ export const addSpot = ({firstName, lastName, title, body, address, state, zipCo
 }
 
 export const getSpots = (spotId) => async dispatch => {
-    const response = await fetch(`api/spots`)
+    const response = await fetch(`/api/spots`)
 
     if (!response.ok) throw response
     const spots = await response.json()
@@ -66,7 +65,7 @@ export const getOneSpot = (spotId) => async dispatch => {
 
 const initialState = []
 
-const spotsReducer = (state = initialState, action) => {
+const spotReducer = (state = initialState, action) => {
     switch (action.type) {
       case LOAD_SPOTS: {
          const newState = action.spots
@@ -99,4 +98,4 @@ const spotsReducer = (state = initialState, action) => {
   };
 
 
-  export default spotsReducer;
+  export default spotReducer;

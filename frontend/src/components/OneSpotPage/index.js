@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Route, Switch, NavLink } from 'react-router-dom'
-import { getReviews } from '../../store/reviewsReducer.js'
-import {getOneSpot} from '../../store/spotsReducer'
+import { getReviews } from '../../store/reviewReducer'
+import {getOneSpot} from '../../store/spotReducer'
 import './ReviewPage.css'
 
 const ReviewPage = () => {

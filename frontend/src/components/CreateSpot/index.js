@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import { addSpot } from '../../store/spotsReducer.js'
+import { addSpot } from '../../store/spotReducer.js'
 import './CreateSpot.css'
 
 
 const CreateSpot =  () =>  {
+    const sessionUser = useSelector(state => state.session.user.id);
+
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -35,8 +37,9 @@ const CreateSpot =  () =>  {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(firstName)
-    const payload = {
+
+        const payload = {
+        hostId: sessionUser,
         firstName,
         lastName,
         title,
@@ -52,7 +55,7 @@ const CreateSpot =  () =>  {
 
     let createdSpot = await dispatch(addSpot(payload))
     if (createdSpot) {
-        history.push(`/spots/${createdSpot.id}`)
+        history.push(`/spots/${createdSpot.spot.id}`)
     }
 }
 

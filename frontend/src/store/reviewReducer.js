@@ -6,8 +6,6 @@ const loadReviews = (reviews) => ({
     reviews
   })
 
-
-
   export const getReviews = (spotId) => async dispatch => {
     const response = await fetch (`/api/reviews/${spotId}`)
 
