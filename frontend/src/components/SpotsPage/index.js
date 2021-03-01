@@ -6,7 +6,7 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image } from '
 import Carousel from 'react-img-carousel';
 import './SpotsPage.css'
 
-const SpotPage = () => {
+const SpotsPage = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -71,4 +71,4 @@ const SpotPage = () => {
         </div>
     )
 }
-export default SpotPage
+export default SpotsPage

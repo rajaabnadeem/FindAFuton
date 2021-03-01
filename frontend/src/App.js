@@ -5,8 +5,8 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import AllSpotsPage from './components/AllSpotsPage'
-import SpotPage from './components/SpotPage'
+import SpotsPage from './components/SpotsPage'
+import SpotPage from './components/SpotPage';
 import CreateSpot from './components/CreateSpot'
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path='/spots'>
-            <AllSpotsPage />
+            <SpotsPage />
           </Route>
           <Route path = '/spots/:id'>
             <SpotPage />

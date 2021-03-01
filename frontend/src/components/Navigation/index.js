@@ -22,7 +22,7 @@ function Navigation({ isLoaded }){
   }
 
   return (
-      <div className='container__navbar'>
+     <div className = 'container__navbar'>
           <div className = 'navbar'>
               <div className = 'navbar__links'>
                   <li>

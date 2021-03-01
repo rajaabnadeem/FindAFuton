@@ -3,7 +3,7 @@
     background: #000000;
     opacity: 0.9;
     display: inline-block;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     font-family: 'Rajdhani', sans-serif;
     font-size: larger;

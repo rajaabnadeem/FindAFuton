@@ -79,6 +79,7 @@ function SignupFormPage() {
       </div>
     </div>
     </form>
+
   );
 }
 
