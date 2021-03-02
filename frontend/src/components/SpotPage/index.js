@@ -29,7 +29,8 @@ const ReviewPage = () => {
                 <div className= 'container__reviews'>Reviews
                 <div>
                 {reviews?.map(review => (
-                        <div className = 'container__review'>{review.body}</div>
+                        <div className = 'container__review'>{review.body} {review.rating}/5</div>
+
                  ))}
                  </div>
             </div>
